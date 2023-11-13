@@ -21,6 +21,8 @@ def calc_all_year(flow_matrix, general_params=def_gen_params):
         """Check to see if water year has more than allowed nan or zeros"""
         if np.isnan(flow_matrix[:, index]).sum() > max_nan_allowed_per_year:
             continue
+        else:
+            print("Too many NANs")
 
         average_annual_flows[-1] = np.nanmean(flow_matrix[:, index])
         standard_deviations[-1] = np.nanstd(flow_matrix[:, index])
